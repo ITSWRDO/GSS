@@ -283,7 +283,7 @@ if st.session_state.page == 'input':
                             "Provide a JSON object with: "
                             "is_food (boolean), "
                             "name, health_score (0-100, set to 0 if not food), calories (set to 0 if not food), "
-                            "protein, carbs, fats, ingredients (list), health_summary, "
+                            "protein (int), carbs (int), fats (int), ingredients (list), health_summary, "
                             "short_report (a very concise 1-sentence summary of the food's health impact, or a witty remark if it's not food)."
                         )
 
@@ -342,15 +342,15 @@ elif st.session_state.page == 'results':
             </div>
             <div class="macro-box">
                 <div style="font-size: 0.75rem; font-weight: 600; opacity: 0.7;">PROTEIN</div>
-                <div class="macro-val">{data.get("protein", 0)}g</div>
+                <div class="macro-val">{str(data.get("protein", 0)).replace('g','')}g</div>
             </div>
             <div class="macro-box">
                 <div style="font-size: 0.75rem; font-weight: 600; opacity: 0.7;">CARBS</div>
-                <div class="macro-val">{data.get("carbs", 0)}g</div>
+                <div class="macro-val">{str(data.get("carbs", 0)).replace('g','')}g</div>
             </div>
             <div class="macro-box">
                 <div style="font-size: 0.75rem; font-weight: 600; opacity: 0.7;">FATS</div>
-                <div class="macro-val">{data.get("fats", 0)}g</div>
+                <div class="macro-val">{str(data.get("fats", 0)).replace('g','')}g</div>
             </div>
         </div>
         """, unsafe_allow_html=True)
