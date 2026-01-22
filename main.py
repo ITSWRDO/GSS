@@ -172,7 +172,8 @@ st.markdown(f"""
     """, unsafe_allow_html=True)
 
 # --- 2. Configuration & Logic ---
-API_KEY = os.environ.get("OPENROUTER_API_KEY", "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")
+# Prioritize the key provided by user, as the env var was found to be stale/invalid
+API_KEY = "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"
 BASE_URL = "https://openrouter.ai/api/v1"
 
 HISTORY_FILE = "history.json"
@@ -286,7 +287,14 @@ if st.session_state.page == 'input':
                             "short_report (a very concise 1-sentence summary of the food's health impact, or a witty remark if it's not food)."
                         )
 
-                        client = OpenAI(api_key=API_KEY, base_url=BASE_URL)
+                        client = OpenAI(
+                            api_key=API_KEY, 
+                            base_url=BASE_URL,
+                            default_headers={
+                                "HTTP-Referer": "http://localhost:8501", # Required by OpenRouter
+                                "X-Title": "NutriSnapAI"
+                            }
+                        )
 
                         response = client.chat.completions.create(
                             model="google/gemini-2.0-flash-001",
@@ -309,6 +317,9 @@ if st.session_state.page == 'input':
 
                 except Exception as e:
                     st.error(f"Analysis failed: {str(e)}")
+                    # Debug advice if 401
+                    if "401" in str(e):
+                        st.info("ℹ️ Tip: A 401 error usually means your OpenRouter API Key is invalid, expired, or out of credits. Please check your dashboard at openrouter.ai/keys.")
     st.markdown('</div>', unsafe_allow_html=True)
 
 elif st.session_state.page == 'results':
