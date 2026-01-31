@@ -18,12 +18,18 @@ HOW TO START THE APP
 -----------------------------------------------------
 To install the necessary files and start the app:
 
-1. Locate the file named: install and run.bat
-2. Double-click it.
+-----------------------------------------------------
+CHOOSE YOUR RUN FILE:
+-----------------------------------------------------
+🪟 WINDOWS: 
+   Double-click "install and run.bat"
 
-The script will automatically install the requirements 
-(Streamlit, OpenAI, Pillow) and launch the app in 
-your web browser.
+🍎 MAC / 🐧 LINUX: 
+   Run "install_and_run.sh" in your terminal.
+
+📱 MOBILE (iOS/Android): 
+   Use the web link for the best experience:
+   https://raunakkushwaha.streamlit.app
 
 -----------------------------------------------------
 ONLINE VERSION
@@ -33,7 +39,7 @@ https://raunakkushwaha.streamlit.app
 
 -----------------------------------------------------
 NOTES:
-- The app uses Gemini 2.0 AI to analyze your food.
+- The app uses Gemini 2.0 AI to analyse your food.
 - Enter a Username in the sidebar to keep track of 
   your meals.
 =====================================================
