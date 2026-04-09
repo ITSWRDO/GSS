@@ -29,13 +29,13 @@ CHOOSE YOUR RUN FILE:
 
 📱 MOBILE (iOS/Android): 
    Use the web link for the best experience:
-   https://raunakkushwaha.streamlit.app
+   https://nutri.raunakkushwaha.tech/
 
 -----------------------------------------------------
 ONLINE VERSION
 -----------------------------------------------------
 If you don't want to run it locally, use the live link:
-https://raunakkushwaha.streamlit.app
+https://nutri.raunakkushwaha.tech/
 
 -----------------------------------------------------
 NOTES:
